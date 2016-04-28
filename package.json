@@ -19,7 +19,7 @@
     "run-sequence": "1.1.5"
   },
   "name": "cutepuppypics",
-  "description": "cutePuppyPics: An Ionic project",
+  "description": "schedule-app: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
