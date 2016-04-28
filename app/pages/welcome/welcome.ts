@@ -1,10 +1,11 @@
 import {Page} from 'ionic-angular';
 import {ScheduleService} from '../../services/schedule';
+import {StorageService} from '../../services/storage';
 
 
 @Page({
   templateUrl: 'build/pages/welcome/welcome.html',
-  providers: [ScheduleService]
+  providers: [ScheduleService, StorageService]
 })
 export class WelcomePage {
   table: any;

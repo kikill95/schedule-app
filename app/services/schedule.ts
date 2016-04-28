@@ -1,31 +1,39 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
+import {StorageService} from './storage';
 import 'rxjs/Rx';
 
 @Injectable()
 export class ScheduleService {
+  serverUrl: string = 'http://schedule-server-api.herokuapp.com/info';
+  storageKey: string = 'TABLE';
+
   constructor (private http: Http) {}
 
-  private _serverUrl = 'http://schedule-server-api.herokuapp.com/info';
-
   getTable() {
-    return this.http.get(this._serverUrl)
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
+    const KEY:string = this.storageKey;
 
-  private extractData(res: Response) {
-    if (res.status < 200 || res.status >= 300) {
-      throw new Error('Bad response status: ' + res.status);
+    function extractData(res: Response) {
+      if (res.status < 200 || res.status >= 300) {
+        throw new Error('Bad response status: ' + res.status);
+      }
+      let body = res.json().data || { };
+      new StorageService().saveData(KEY, {
+        table: body,
+        time: new Date().getTime()
+      });
+      return body;
     }
-    let body = res.json();
-    return body.data || { };
-  }
 
-  private handleError (error: any) {
-    let errMsg = error.message || 'Server error';
-    console.error(errMsg);
-    return errMsg;
+    function handleError (error: any) {
+      let errMsg = error.message || 'Server error';
+      console.error(errMsg);
+      return errMsg;
+    }
+
+    return this.http.get(this.serverUrl)
+      .map(extractData)
+      .catch(handleError);
   }
 
 }
