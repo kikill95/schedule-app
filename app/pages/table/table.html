@@ -1,6 +1,7 @@
 <ion-content class="table">
   <h2>Розклад</h2>
-  <h3>Останнi данi з: {{ time | date:'MM-dd HH:mm:ss' }}</h3>
+  <h3>Останнi данi з: {{ dataTime | date:'MM-dd HH:mm' }}</h3>
+  <h3>{{day}}</h3>
   <table>
     <tbody>
       <tr *ngFor="#rows of schedule;">

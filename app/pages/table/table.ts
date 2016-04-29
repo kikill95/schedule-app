@@ -8,13 +8,15 @@ import {TableFormatterService} from '../../services/tableFormatter';
 })
 export class TablePage {
   schedule: any;
-  time: number;
+  dataTime: number;
+  day: string;
   constructor(private navParams: NavParams, private tabelFormatter: TableFormatterService) {}
 
   ngAfterViewInit() {
     let data = this.navParams.get('table');
+    this.dataTime = data.time;
+    this.day = data.table[0][0];
     this.schedule = this.tabelFormatter.performByChosenCourse(data.table, this.navParams.get('choosenCourse'));
-    this.time = data.time;
   }
 
 }
