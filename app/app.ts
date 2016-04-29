@@ -4,11 +4,11 @@ import {WelcomePage} from './pages/welcome/welcome';
 
 
 @App({
-  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  template: '<ion-nav [root]="initialPage"></ion-nav>',
   config: {}
 })
-export class Schedule {
-  rootPage: any = WelcomePage;
+export class Application {
+  initialPage: any = WelcomePage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

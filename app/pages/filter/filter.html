@@ -1,0 +1,8 @@
+<ion-content class="filter">
+  <h2>Фільтр</h2>
+  <ul>
+      <li *ngFor="#course of courses;" (click)="chooseCourse(course);">
+          {{course}}
+      </li>
+  </ul>
+</ion-content>

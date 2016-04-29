@@ -11,21 +11,19 @@ export class ScheduleService {
   constructor (private http: Http) {}
 
   getTable() {
-    const KEY:string = this.storageKey;
-
-    function extractData(res: Response) {
+    var extractData = (res: Response) => {
       if (res.status < 200 || res.status >= 300) {
         throw new Error('Bad response status: ' + res.status);
       }
-      let body = res.json().data || { };
-      new StorageService().saveData(KEY, {
-        table: body,
+      let body = {
+        table: res.json().data,
         time: new Date().getTime()
-      });
+      };
+      new StorageService().saveData(this.storageKey, body);
       return body;
     }
 
-    function handleError (error: any) {
+    var handleError = (error: any) => {
       let errMsg = error.message || 'Server error';
       console.error(errMsg);
       return errMsg;

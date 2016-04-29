@@ -1,6 +1,7 @@
-import {Page} from 'ionic-angular';
+import {Page, NavController} from 'ionic-angular';
 import {ScheduleService} from '../../services/schedule';
 import {StorageService} from '../../services/storage';
+import {FilterPage} from '../../pages/filter/filter';
 
 
 @Page({
@@ -10,18 +11,21 @@ import {StorageService} from '../../services/storage';
 export class WelcomePage {
   table: any;
 
-  constructor(private schedule: ScheduleService) {}
+  constructor(private schedule: ScheduleService, private nav: NavController) {}
 
   ngAfterViewInit() {
+    var nextStep = () => {
+      this.nav.push(FilterPage, {table: this.table});
+    }
     let timer: any = setTimeout(() => {
         if (this.table) {
-          // go away
+          nextStep();
         }
     }, 4000);
     this.schedule.getTable().subscribe(data => {
         this.table = data;
         if (timer.runCount !== 0) {
-          // go away
+          nextStep();
         }
     });
   }
