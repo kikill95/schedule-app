@@ -16,14 +16,23 @@
       font-family: "Roboto Condensed", sans-serif;
     }
     .full-table {
+      overflow: scroll;
       border: 1px solid $border;
       h3 {
         width: 5.6%;
         margin: 1rem 0 auto 0;
+        display: inline-table;
         text-orientation: upright;
         writing-mode: vertical-rl;
         letter-spacing: 15px;
         float: left;
+        @media (max-width: 390px) {
+          width: 100%;
+          padding: 0 15px;
+          margin: 0;
+          text-align: center;
+          writing-mode: initial;
+        }
       }
       table {
         width: auto;

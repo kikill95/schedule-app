@@ -19,4 +19,11 @@ export class TablePage {
     this.schedule = this.tabelFormatter.performByChosenCourse(data.table, this.navParams.get('choosenCourse'));
   }
 
+  getPreviousNotEmpty(rows, j) {console.log(rows, j);
+    if (j > 1 && rows[j - 1] === '') {
+      return this.getPreviousNotEmpty(rows, j - 1);
+    }
+    return rows[j - 1];
+  }
+
 }
