@@ -11,7 +11,7 @@ export class FilterPage {
 
   ngAfterViewInit() {
     this.courses = this.navParams.get('table').table[0].filter((el) => {
-      return el.match(/^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])+/g)[0].length > 0;
+      return el.match(/^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])(І{0,3})+/g)[0].length > 0;
     });
   }
 
