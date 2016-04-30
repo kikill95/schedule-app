@@ -8,11 +8,11 @@ export class TableFormatterService {
   performByChosenCourse(tables, course) {
     let positions: Array<number> = [],
       ourIndexes:boolean = false;
-    tables[0].forEach((el, position) => {
+    tables[0].forEach((el, position, arr) => {
       if (ourIndexes && el !== '') {
         ourIndexes = false;
       }
-      if (el === course || ourIndexes) {
+      if (el === course || ourIndexes && position < arr.length - 3) {
         positions.push(position);
         ourIndexes = true;
       }
