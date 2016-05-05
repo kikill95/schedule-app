@@ -1,17 +1,19 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {StorageService} from './storage';
+import {Network, Connection} from 'ionic-native';
 import 'rxjs/Rx';
+import {Observable}    from 'rxjs/Observable';
 
 @Injectable()
 export class ScheduleService {
   serverUrl: string = 'http://schedule-server-api.herokuapp.com/info';
   storageKey: string = 'TABLE';
 
-  constructor (private http: Http) {}
+  constructor (private http: Http, private storage: StorageService) {}
 
   getTable() {
-    var extractData = (res: Response) => {
+    var extractData = (res: Response) => {console.log(res)
       if (res.status < 200 || res.status >= 300) {
         throw new Error('Bad response status: ' + res.status);
       }
@@ -19,7 +21,7 @@ export class ScheduleService {
         table: res.json().data,
         time: new Date().getTime()
       };
-      new StorageService().saveData(this.storageKey, body);
+      this.storage.saveData(this.storageKey, body);
       return body;
     }
 
@@ -27,6 +29,12 @@ export class ScheduleService {
       let errMsg = error.message || 'Server error';
       console.error(errMsg);
       return errMsg;
+    }
+
+    if (Network.connection === Connection.NONE) {
+      return Observable.create(observer => {
+          observer.next(this.storage.getData(this.storageKey));
+        });
     }
 
     return this.http.get(this.serverUrl)

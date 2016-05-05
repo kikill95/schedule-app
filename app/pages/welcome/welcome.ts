@@ -14,20 +14,21 @@ export class WelcomePage {
   constructor(private schedule: ScheduleService, private nav: NavController) {}
 
   ngAfterViewInit() {
-    var nextStep = () => {
-      this.nav.push(FilterPage, {table: this.table});
-    }
     let timer: any = setTimeout(() => {
         if (this.table) {
-          nextStep();
+          this.nextStep();
         }
     }, 4000);
     this.schedule.getTable().subscribe(data => {
         this.table = data;
         if (timer.runCount !== 0) {
-          nextStep();
+          this.nextStep();
         }
     });
+  }
+
+  nextStep() {
+    this.nav.push(FilterPage, {table: this.table});
   }
 
 }

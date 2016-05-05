@@ -1,4 +1,4 @@
-import {Page, NavParams} from 'ionic-angular';
+import {Page, NavController, NavParams} from 'ionic-angular';
 import {TableFormatterService} from '../../services/tableFormatter';
 
 
@@ -10,7 +10,7 @@ export class TablePage {
   schedule: any;
   dataTime: number;
   day: string;
-  constructor(private navParams: NavParams, private tabelFormatter: TableFormatterService) {}
+  constructor(private nav: NavController, private navParams: NavParams, private tabelFormatter: TableFormatterService) {}
 
   ngAfterViewInit() {
     let data = this.navParams.get('table');
@@ -24,6 +24,10 @@ export class TablePage {
       return this.getPreviousNotEmpty(rows, j - 1);
     }
     return rows[j - 1];
+  }
+
+  changeFilter() {
+    this.nav.pop();
   }
 
 }
