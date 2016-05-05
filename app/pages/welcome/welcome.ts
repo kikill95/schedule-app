@@ -1,4 +1,4 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, NavController, Alert} from 'ionic-angular';
 import {ScheduleService} from '../../services/schedule';
 import {StorageService} from '../../services/storage';
 import {FilterPage} from '../../pages/filter/filter';
@@ -15,20 +15,34 @@ export class WelcomePage {
 
   ngAfterViewInit() {
     let timer: any = setTimeout(() => {
-        if (this.table) {
-          this.nextStep();
-        }
+      if (this.table) {
+        this.nextStep();
+      }
     }, 4000);
     this.schedule.getTable().subscribe(data => {
-        this.table = data;
-        if (timer.runCount !== 0) {
-          this.nextStep();
-        }
+      this.table = data;
+      if (timer.runCount !== 0) {
+        this.nextStep();
+      }
     });
   }
 
   nextStep() {
-    this.nav.push(FilterPage, {table: this.table});
+    if (!this.table.time) {
+      let alert = Alert.create({
+        title: 'Немає з’єднання!',
+        subTitle: 'Будь ласка, підключіться до інтернету',
+        buttons: [{
+          text: 'Повторити спробу',
+          handler: data => {
+            this.ngAfterViewInit();
+          }
+        }]
+      });
+      this.nav.present(alert);
+    } else {
+      this.nav.push(FilterPage, {table: this.table});
+    }
   }
 
 }

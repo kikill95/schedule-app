@@ -2,6 +2,12 @@
   background: #fdfdfd;
   scroll-content {
     padding: 20px;
+    ion-icon:before {
+      font-size: 42px;
+    }
+    ion-icon:active:before {
+      opacity: 0.3;
+    }
     h2 {
       margin: 0;
       padding: 15px;

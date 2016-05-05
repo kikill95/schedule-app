@@ -1,5 +1,6 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {TableFormatterService} from '../../services/tableFormatter';
+import {WelcomePage} from '../welcome/welcome';
 
 
 @Page({
@@ -28,6 +29,13 @@ export class TablePage {
 
   changeFilter() {
     this.nav.pop();
+  }
+
+  refresh(refresher) {
+    setTimeout(() => {
+      refresher.complete();
+      this.nav.setRoot(WelcomePage);
+    }, 2000);
   }
 
 }

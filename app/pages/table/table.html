@@ -1,5 +1,11 @@
 <ion-content class="table">
-  <button (click)="changeFilter();">Назад</button>
+  <ion-refresher (refresh)="refresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+   	  pullingText="Потягніть, щоб оновити...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-icon name="arrow-back" (click)="changeFilter();"></ion-icon>
   <h2>Розклад</h2>
   <h3>Останнi данi з: {{ dataTime | date:'MM-dd HH:mm' }}</h3>
   <div class="full-table">
