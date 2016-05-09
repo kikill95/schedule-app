@@ -1,4 +1,6 @@
-<ion-content class="filter">
-  <h2>Фільтр</h2>
-  <button *ngFor="#course of courses;" (click)="chooseCourse(course);">{{course}}</button>
+<ion-content [className]="'filter day-' + today">
+  <h2>Оберiть групу</h2>
+  <div class="button-group">
+    <button [className]="'buttons-day-' + today" *ngFor="#course of courses;" (click)="chooseCourse(course);" >{{course}}</button>
+  </div>
 </ion-content>

@@ -7,6 +7,7 @@ import {TablePage} from '../table/table';
 })
 export class FilterPage {
   courses: any;
+  today: number = new Date().getDay();
   constructor(private nav: NavController, private navParams: NavParams) {}
 
   ngAfterViewInit() {

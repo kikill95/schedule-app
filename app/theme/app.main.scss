@@ -1,0 +1,15 @@
+scroll-content {
+  padding: 20px;
+  ion-icon {
+    border-radius: 50%;
+  }
+  ion-icon:before {
+    font-size: 38px;
+    color: $main-txt;
+    width: 40px;
+    height: 40px;
+    display: block;
+    text-align: center;
+  }
+}
+
