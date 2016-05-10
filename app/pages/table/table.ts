@@ -11,6 +11,7 @@ export class TablePage {
   schedule: any;
   dataTime: number;
   day: string;
+  today: number = new Date().getDay();
   constructor(private nav: NavController, private navParams: NavParams, private tabelFormatter: TableFormatterService) {}
 
   ngAfterViewInit() {
