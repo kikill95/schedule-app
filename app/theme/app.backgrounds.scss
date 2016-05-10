@@ -1,25 +1,25 @@
 .day-1 {
-  background: url('../../images/1.jpg');
+  background: url('../../images/bg-1.jpg');
   background-size: cover;
 }
 .day-2 {
-  background: url('../../images/2.jpg');
+  background: url('../../images/bg-2.jpg');
   background-size: cover;
 }
 .day-3 {
-  background: url('../../images/3.jpg');
+  background: url('../../images/bg-3.jpg');
   background-size: cover;
 }
 .day-4 {
-  background: url('../../images/4.jpg');
+  background: url('../../images/bg-4.jpg');
   background-size: cover;
 }
 .day-5 {
-  background: url('../../images/5.jpg');
+  background: url('../../images/bg-5.jpg');
   background-size: cover;
 }
-.day-6, .day-7{
-  background: url('../../images/6.jpg');
+.day-6, .day-0 {
+  background: url('../../images/bg-6.jpg');
   background-size: cover;
 }
 .buttons-day-1 {
@@ -37,6 +37,6 @@
 .buttons-day-5 {
   background: rgba(63, 81, 181, 0.65) !important;
 }
-.buttons-day-6, .buttons-day-7 {
+.buttons-day-6, .buttons-day-0 {
   background: rgba(158, 158, 158, 0.9) !important;
 }

@@ -3,7 +3,6 @@
     padding: 20px;
     ion-icon:before {
       font-size: 38px;
-      //color: $main-txt;
     }
     ion-icon:active:before {
       opacity: 0.3;
@@ -15,7 +14,6 @@
       font-weight: 600;
       font-size: 240%;
       color: $main-txt;
-      //background: aliceblue;
     }
     h3 {
       margin: 0;
@@ -24,12 +22,9 @@
       color: $main-txt;
     }
     .full-table {
-      margin: 50px -20px 0;
+      margin: 20px -20px 0;
       padding-top: 10px;
       overflow: scroll;
-      -webkit-box-shadow: inset 0px 74px 46px -71px #263238;
-      -moz-box-shadow: inset 0px 74px 46px -71px #263238;
-      box-shadow: inset 0px 74px 46px -71px #263238;
       h3 {
         width: 5.6%;
         margin: 1rem 0 auto 15px;
@@ -52,7 +47,6 @@
       }
       table {
         width: auto;
-        //border: 1px solid $border;
         font-family: "Roboto Slab", sans-serif;
         tr {
           &.odd {
@@ -68,7 +62,6 @@
             font-weight: 600;
             font-family: 'Jura', sans-serif;
             word-wrap: break-word;
-            //border: 1px solid $border;
             box-sizing: border-box;
             &:first-child {
               width: 5%;
@@ -77,7 +70,6 @@
           &:nth-child(1) {
             font-size: 160%;
             font-weight: bold;
-            //border-bottom: 1px solid $border;
             td {
               border: none;
             }
@@ -85,7 +77,6 @@
           &:nth-child(2) {
             background: $accent-table-bg;
             td {
-              //border-left: 1px solid $table-bg;
               padding: 5px;
               width: 30%;
               &:first-child {

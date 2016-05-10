@@ -1,15 +1,18 @@
 .welcome {
-  .container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-   ion-spinner {
-     width: 60px;
-     height: 60px;
-   }
- }
+  scroll-content {
+    padding: 0;
+    .container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ion-spinner {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
 }

@@ -1,3 +1,5 @@
+$white: #E0E0E0;
+
 scroll-content {
   padding: 20px;
   ion-icon {
@@ -12,4 +14,17 @@ scroll-content {
     text-align: center;
   }
 }
-
+ion-refresher {
+  margin-top: 5px;
+  .refresher-pulling-text {
+    font-size: 18px;
+    color: $white;
+  }
+  .refresher-pulling-icon {
+    font-size: 32px;
+    color: $white;
+  }
+  ion-spinner.spinner-crescent circle {
+    stroke: $white;
+  }
+}
