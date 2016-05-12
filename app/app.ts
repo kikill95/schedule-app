@@ -1,5 +1,6 @@
 import {App, Platform} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
+import {Splashscreen} from 'ionic-native';
 import {WelcomePage} from './pages/welcome/welcome';
 
 
@@ -13,6 +14,7 @@ export class Application {
   constructor(platform: Platform) {
     platform.ready().then(() => {
       StatusBar.styleDefault();
+      Splashscreen.hide();
     });
   }
 }

@@ -18,7 +18,7 @@ export class WelcomePage {
       if (this.table) {
         this.nextStep();
       }
-    }, 4000);
+    }, 5000);
     this.schedule.getTable().subscribe(data => {
       this.table = data;
       if (timer.runCount !== 0) {
