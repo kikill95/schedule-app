@@ -2,9 +2,10 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
-www/build/
+www/
 platforms/
-plugins/
+
+npm-debug.log*
 *.swp
 .DS_Store
 Thumbs.db
