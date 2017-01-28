@@ -7,19 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.projectico.schedule"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.projectico.schedule"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.projectico.schedule"
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.projectico.schedule"
         },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.projectico.schedule"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.projectico.schedule"
         },
         "ionic-plugin-keyboard": {

@@ -1,9 +1,10 @@
 # Specifies files to intentionally ignore when using Git
 # http://git-scm.com/docs/gitignore
 
-node_modules/
-www/
-platforms/
+/node_modules/
+/www/
+/platforms/
+/.tmp/
 
 npm-debug.log*
 *.swp
