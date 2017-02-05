@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { StorageService } from './storage';
-import { Network } from 'ionic-native';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ScheduleService {
-  serverUrl: string = 'http://schedule-server-api.herokuapp.com/info';
+  serverUrl: string = 'http://schedule-serv123er-api.herokuapp.com/info';
   storageKey: string = 'TABLE';
 
-  constructor (private http: Http, private storage: StorageService) {}
+  constructor (
+    private http: Http,
+    private storage: StorageService) {}
 
   getTable() {
-    // if (Network.connection === Connection.NONE) {
-      // return Observable.create(observer => {
-      //     observer.next(this.storage.getData(this.storageKey));
-      //   });
-    // }
-
     return this.http.get(this.serverUrl)
-      .map(this.extractData)
-      .catch(this.handleError);
+      .map(this.extractData.bind(this))
+      .catch(this.handleError.bind(this));
   }
 
-  public extractData = (res: Response) => {
+  public extractData(res: Response) {
     if (res.status < 200 || res.status >= 300) {
       throw new Error('Bad response status: ' + res.status);
     }
@@ -32,14 +27,15 @@ export class ScheduleService {
       table: res.json().data,
       time: new Date().getTime()
     };
+    this.storage.saveData('lastSyncDate', new Date().getTime());
     this.storage.saveData(this.storageKey, body);
     return body;
   }
 
-  public handleError = (error: any) => {
-    let errMsg = error.message || 'Server error';
-    console.error(errMsg);
-    return errMsg;
+  public handleError(error: any) {
+    return Observable.create(observer => {
+      observer.next(this.storage.getData(this.storageKey));
+    });
   }
 
 }

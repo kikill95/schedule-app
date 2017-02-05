@@ -7,18 +7,20 @@ import { TablePage } from '../table/table';
   templateUrl: 'filter.html'
 })
 export class FilterPage {
-  courses: any;
+  table: any;
   today: number = new Date().getDay();
   constructor(private nav: NavController, private navParams: NavParams) {}
 
   ngAfterViewInit() {
-    this.courses = this.navParams.get('table').table[0].filter((el) => {
-      return el.match(/^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])(І{0,3})+/g)[0].length > 0;
-    });
+    this.table = this.navParams.get('table').filter(el => el).map(el => el.filter(el => el));
   }
 
-  chooseCourse(course) {
-    this.nav.push(TablePage, {table: this.navParams.get('table'), choosenCourse: course});
+  public isRelevantHeader(value: string): boolean {
+    return value && value.match(/^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])(І{0,3})+/g)[0].length > 0;
+  }
+
+  chooseCourse(index, course) {
+    this.nav.push(TablePage, {oneDay: this.table[index], choosenCourse: course});
   }
 
 }

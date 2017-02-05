@@ -1,6 +1,11 @@
 <ion-content [className]="'filter day-' + today">
   <h2>Оберiть групу</h2>
-  <div class="button-group">
-    <button [className]="'buttons-day-' + today" *ngFor="let course of courses;" (click)="chooseCourse(course);" >{{course}}</button>
-  </div>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let courses of table; let ind = index">
+      <h2>{{courses[0][1]}}</h2>
+      <div class="button-group" *ngFor="let course of courses[0]" [hidden]="!isRelevantHeader(course)">
+        <button [className]="'buttons-day-' + today" (click)="chooseCourse(ind, course)" >{{course}}</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

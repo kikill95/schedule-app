@@ -1,32 +1,41 @@
 .filter {
   h2 {
-    padding-top: 40px;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 240%;
     color: $main-txt;
+    text-align: center;
   }
-  .button-group {
-    margin: 20px -20px 0;
-    padding: 50px 15px 0;
-  }
-  button {
-    min-width: 100px;
-    width: calc(100% / 2 + 20px);
-    height: 60px;
-    margin: 0 -20px;
-    display: block;
-    background: $button;
-    font-size: 2.5rem;
-    font-family: 'Jura', sans-serif;
-    font-weight: 600;
-    float: left;
-    border-radius: 0;
-    &:nth-child(even) {
-      margin-left: 0;
-    }
-    &:nth-child(odd) {
-      margin-right: 0;
+  ion-slides {
+    .swiper-container {
+      padding-bottom: 45px;
+      ion-slide {
+        h2 {
+          margin-top: 0;
+          margin-bottom: 20px;
+          padding-top: 40px;
+        }
+        .button-group {
+          button {
+            width: calc(50% - 10px);
+            min-width: 100px;
+            height: 60px;
+            margin: 5px;
+            display: block;
+            background: $button;
+            font-size: 2.5rem;
+            font-family: 'Jura', sans-serif;
+            font-weight: 600;
+            float: left;
+            border-radius: 0;
+          }
+        }
+      }
+      .swiper-pagination {
+        button {
+          background: $border;
+        }
+      }
     }
   }
 }

@@ -10,7 +10,7 @@ import { FilterPage } from '../../pages/filter/filter';
   providers: [ScheduleService, StorageService]
 })
 export class WelcomePage {
-  table: any;
+  private table: any;
 
   constructor(
     private schedule: ScheduleService,
@@ -18,22 +18,17 @@ export class WelcomePage {
     public alertCtrl: AlertController) {}
 
   ngAfterViewInit() {
-    let timer: any = setTimeout(() => {
-      if (this.table) {
+    setTimeout(() => {
+      this.schedule.getTable().subscribe((data: any) => {
+        this.table = data.table;
         this.nextStep();
-      }
-    }, 5000);
-    this.schedule.getTable().subscribe(data => {
-      this.table = data;
-      if (timer.runCount !== 0) {
-        this.nextStep();
-      }
-    });
+      });
+    }, 1000);
   }
 
   nextStep() {
-    if (!this.table.time) {
-      let alert = this.alertCtrl.create({
+    if (!this.table) {
+      this.alertCtrl.create({
         title: 'Немає з’єднання!',
         subTitle: 'Будь ласка, підключіться до інтернету',
         buttons: [{
@@ -42,8 +37,7 @@ export class WelcomePage {
             this.ngAfterViewInit();
           }
         }]
-      });
-      alert.present();
+      }).present();
     } else {
       this.nav.push(FilterPage, {table: this.table});
     }

@@ -47,10 +47,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-crosswalk-webview": {
+    "cordova-plugin-network-information": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-crosswalk-webview@~1.6.1"
+            "id": "cordova-plugin-network-information"
         },
         "is_top_level": true,
         "variables": {}

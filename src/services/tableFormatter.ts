@@ -7,7 +7,8 @@ export class TableFormatterService {
 
   performByChosenCourse(tables, course) {
     let positions: Array<number> = [],
-      ourIndexes:boolean = false;
+      ourIndexes: boolean = false;
+
     tables[0].forEach((el, position, arr) => {
       if (ourIndexes && el !== '') {
         ourIndexes = false;
@@ -15,6 +16,11 @@ export class TableFormatterService {
       if (el === course || ourIndexes && position < arr.length - 3) {
         positions.push(position);
         ourIndexes = true;
+      }
+    });
+    tables.forEach((table, index) => {
+      if (table.filter(el => el).length === 0) {
+        tables.splice(index, 1);
       }
     });
     return tables.map((table) => {

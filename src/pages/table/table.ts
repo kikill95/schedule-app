@@ -1,25 +1,30 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TableFormatterService } from '../../services/tableFormatter';
+import { StorageService } from '../../services/storage';
 import { WelcomePage } from '../welcome/welcome';
 
 
 @Component({
   templateUrl: 'table.html',
-  providers: [TableFormatterService]
+  providers: [TableFormatterService, StorageService]
 })
 export class TablePage {
   schedule: any;
   dataTime: number;
   day: string;
   today: number = new Date().getDay();
-  constructor(private nav: NavController, private navParams: NavParams, private tabelFormatter: TableFormatterService) {}
+  constructor(
+    private nav: NavController,
+    private navParams: NavParams,
+    private tabelFormatter: TableFormatterService,
+    private storage: StorageService) {}
 
   ngAfterViewInit() {
-    let data = this.navParams.get('table');
-    this.dataTime = data.time;
-    this.day = data.table[0][0];
-    this.schedule = this.tabelFormatter.performByChosenCourse(data.table, this.navParams.get('choosenCourse'));
+    let oneDay = this.navParams.get('oneDay');
+    this.dataTime = this.storage.getData('lastSyncDate');
+    this.day = oneDay[0][1];
+    this.schedule = this.tabelFormatter.performByChosenCourse(oneDay, this.navParams.get('choosenCourse'));
   }
 
   getPreviousNotEmpty(rows, j) {
@@ -36,8 +41,10 @@ export class TablePage {
   refresh(refresher) {
     setTimeout(() => {
       refresher.complete();
-      this.nav.setRoot(WelcomePage);
-    }, 2000);
+      setTimeout(() => {
+        this.nav.setRoot(WelcomePage);
+      }, 200);
+    }, 1000);
   }
 
 }
