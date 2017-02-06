@@ -1,5 +1,6 @@
 .filter {
   h2 {
+    margin-bottom: 40px;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     font-size: 240%;
@@ -8,8 +9,9 @@
   }
   ion-slides {
     .swiper-container {
-      padding-bottom: 80px;
+      overflow: visible;
       ion-slide {
+        padding-bottom: 100px;
         h2 {
           margin-top: 0;
           margin-bottom: 20px;
