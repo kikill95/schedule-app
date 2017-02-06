@@ -1,27 +1,49 @@
 .day-1 {
   background: url('../assets/images/bg-1.jpg');
   background-size: cover;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(93, 64, 55, 0.8);
+  }
 }
 .day-2 {
   background: url('../assets/images/bg-2.jpg');
   background-size: cover;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(158, 158, 158, 0.9);
+  }
 }
 .day-3 {
   background: url('../assets/images/bg-3.jpg');
   background-size: cover;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(255, 82, 82, 0.7);
+  }
 }
 .day-4 {
   background: url('../assets/images/bg-4.jpg');
   background-size: cover;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(158, 158, 158, 0.9);
+  }
 }
 .day-5 {
   background: url('../assets/images/bg-5.jpg');
   background-size: cover;
+  .swiper-pagination-bullet {
+    background: rgba(158, 158, 158, 0.9);
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(63, 81, 181, 0.65);
+  }
 }
 .day-6, .day-0 {
   background: url('../assets/images/bg-6.jpg');
   background-size: cover;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(62, 39, 35, 0.7);
+  }
 }
+
 .buttons-day-1 {
   background: rgba(55, 71, 79, 0.7) !important;
 }

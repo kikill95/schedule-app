@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ScheduleService {
-  serverUrl: string = 'http://schedule-serv123er-api.herokuapp.com/info';
+  serverUrl: string = 'http://schedule-server-api.herokuapp.com/info';
   storageKey: string = 'TABLE';
 
   constructor (

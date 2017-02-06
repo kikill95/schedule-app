@@ -8,7 +8,7 @@
   }
   ion-slides {
     .swiper-container {
-      padding-bottom: 45px;
+      padding-bottom: 80px;
       ion-slide {
         h2 {
           margin-top: 0;
@@ -29,11 +29,6 @@
             float: left;
             border-radius: 0;
           }
-        }
-      }
-      .swiper-pagination {
-        button {
-          background: $border;
         }
       }
     }
