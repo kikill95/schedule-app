@@ -15,6 +15,9 @@ export class Application {
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
+      platform.registerBackButtonAction((event) => {
+          event.preventDefault();
+      });
     });
   }
 }
