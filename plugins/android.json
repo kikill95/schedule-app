@@ -10,6 +10,14 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.projectico.meteor"
         },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "org.xwalk:xwalk_core_library_beta:14+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.projectico.meteor"
         },
