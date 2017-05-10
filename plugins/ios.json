@@ -1,0 +1,36 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.projectico.meteor"
+        }
+    },
+    "dependent_plugins": {}
+}
